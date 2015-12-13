@@ -1,0 +1,8 @@
+#忽略DerivedData文件夹
+DerivedData/
+#忽略MasonryDemo.xcodeproj/下除了project的文件
+MasonryDemo.xcodeproj/*
+!MasonryDemo.xcodeproj/project.pbxproj
+Pods/
+.DS_Store
+*.xcworkspace
