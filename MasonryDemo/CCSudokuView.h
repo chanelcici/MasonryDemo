@@ -15,4 +15,6 @@
 @property (nonatomic, copy) NSString *cellClassName;    //单元格类名
 @property (nonatomic, assign) int padding;  //单元格间隙
 
+-(void) loadView;
+
 @end

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Masonry/MASConstraintMaker.h>
 #import <Masonry/View+MASAdditions.h>
+#import "CCSudokuView.h"
 
 @interface ViewController ()
 
@@ -30,87 +31,104 @@
     
     [bgButton addTarget:self action:@selector(gogogo) forControlEvents:UIControlEventTouchUpInside];
     
+    CCSudokuView *sudokuView = [[CCSudokuView alloc] init];
+    sudokuView.lineNumber = 5;
+    sudokuView.columnNumber = 5;
+    sudokuView.padding = 1;
+    [sudokuView loadView];
+    [bgButton addSubview:sudokuView];
+    
+    [sudokuView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(bgButton).insets(UIEdgeInsetsMake(5, 10, 15, 50)); //上左下右,数值为正则往里缩
+
+    }];
+    
+    
+    
+    
+    
+    
 //    UIView *sv1 = [[UIView alloc] init];
 //    [sv addSubview:sv1];
 //    sv1.backgroundColor = [UIColor yellowColor];
 //    [sv1 mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.equalTo(sv).insets(UIEdgeInsetsMake(5, 10, 15, 20)); //上左下右,数值为正则往里缩
 //    }];
-    int padding1 = 3;
-    
-    int lineNumber = 3;   //行数
-    int columnNumber = 4;   //列数
-    for (int i=1; i <= lineNumber*columnNumber; i++) {
-        UIView *cellView = [[UIView alloc] init];
-        [bgButton addSubview:cellView];
-        cellView.tag = i;
-        cellView.backgroundColor = [UIColor orangeColor];
-        
-    }
-    
-    //i行数,j列数
-    for (int i=1; i<=lineNumber; i++) {
-        for (int j=1; j<=columnNumber; j++) {
-            UIView *currentView = [bgButton viewWithTag:(columnNumber*(i-1)+j)];
-            
-            [currentView mas_makeConstraints:^(MASConstraintMaker *make) {
-                
-                if (lineNumber == 1) {
-                    make.top.equalTo(bgButton.mas_top);
-                    make.bottom.equalTo(bgButton.mas_bottom);
-                }
-                else {
-                    if (i == 1) {
-                        make.top.equalTo(bgButton.mas_top);
-                        UIView *behindView = [bgButton viewWithTag:(columnNumber*i+j)];
-                        make.bottom.equalTo(behindView.mas_top).offset(-padding1);
-                        make.height.equalTo(behindView);
-                    }
-                    else if (i == lineNumber) {
-                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-2)+j)];
-                        make.top.equalTo(frontView.mas_bottom).offset(padding1);
-                        make.bottom.equalTo(bgButton.mas_bottom);
-                        make.height.equalTo(frontView);
-                        
-                    }
-                    else {
-                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-2)+j)];
-                        UIView *behindView = [bgButton viewWithTag:(columnNumber*i+j)];
-                        make.top.equalTo(frontView.mas_bottom).offset(padding1);
-                        make.bottom.equalTo(behindView.mas_top).offset(-padding1);
-                        make.height.equalTo(frontView);
-                    }
-                }
-                
-                if (columnNumber == 1) {
-                    make.left.equalTo(bgButton.mas_left);
-                    make.right.equalTo(bgButton.mas_right);
-                }
-                else {
-                    if (j == 1) {
-                        make.left.equalTo(bgButton.mas_left);
-                        UIView *behindView = [bgButton viewWithTag:(columnNumber*(i-1)+j+1)];
-                        make.right.equalTo(behindView.mas_left).offset(-padding1);
-                        make.width.equalTo(behindView);
-                    }
-                    else if (j == columnNumber) {
-                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-1)+j-1)];
-                        make.left.equalTo(frontView.mas_right).offset(padding1);
-                        make.right.equalTo(bgButton.mas_right);
-                        make.width.equalTo(frontView);
-                        
-                    }
-                    else {
-                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-1)+j-1)];
-                        UIView *behindView = [bgButton viewWithTag:(columnNumber*(i-1)+j+1)];
-                        make.left.equalTo(frontView.mas_right).offset(padding1);
-                        make.right.equalTo(behindView.mas_left).offset(-padding1);
-                        make.width.equalTo(frontView);
-                    }
-                }
-            }];
-        }
-    }
+//    int padding1 = 3;
+//    
+//    int lineNumber = 3;   //行数
+//    int columnNumber = 4;   //列数
+//    for (int i=1; i <= lineNumber*columnNumber; i++) {
+//        UIView *cellView = [[UIView alloc] init];
+//        [bgButton addSubview:cellView];
+//        cellView.tag = i;
+//        cellView.backgroundColor = [UIColor orangeColor];
+//        
+//    }
+//    
+//    //i行数,j列数
+//    for (int i=1; i<=lineNumber; i++) {
+//        for (int j=1; j<=columnNumber; j++) {
+//            UIView *currentView = [bgButton viewWithTag:(columnNumber*(i-1)+j)];
+//            
+//            [currentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//                
+//                if (lineNumber == 1) {
+//                    make.top.equalTo(bgButton.mas_top);
+//                    make.bottom.equalTo(bgButton.mas_bottom);
+//                }
+//                else {
+//                    if (i == 1) {
+//                        make.top.equalTo(bgButton.mas_top);
+//                        UIView *behindView = [bgButton viewWithTag:(columnNumber*i+j)];
+//                        make.bottom.equalTo(behindView.mas_top).offset(-padding1);
+//                        make.height.equalTo(behindView);
+//                    }
+//                    else if (i == lineNumber) {
+//                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-2)+j)];
+//                        make.top.equalTo(frontView.mas_bottom).offset(padding1);
+//                        make.bottom.equalTo(bgButton.mas_bottom);
+//                        make.height.equalTo(frontView);
+//                        
+//                    }
+//                    else {
+//                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-2)+j)];
+//                        UIView *behindView = [bgButton viewWithTag:(columnNumber*i+j)];
+//                        make.top.equalTo(frontView.mas_bottom).offset(padding1);
+//                        make.bottom.equalTo(behindView.mas_top).offset(-padding1);
+//                        make.height.equalTo(frontView);
+//                    }
+//                }
+//                
+//                if (columnNumber == 1) {
+//                    make.left.equalTo(bgButton.mas_left);
+//                    make.right.equalTo(bgButton.mas_right);
+//                }
+//                else {
+//                    if (j == 1) {
+//                        make.left.equalTo(bgButton.mas_left);
+//                        UIView *behindView = [bgButton viewWithTag:(columnNumber*(i-1)+j+1)];
+//                        make.right.equalTo(behindView.mas_left).offset(-padding1);
+//                        make.width.equalTo(behindView);
+//                    }
+//                    else if (j == columnNumber) {
+//                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-1)+j-1)];
+//                        make.left.equalTo(frontView.mas_right).offset(padding1);
+//                        make.right.equalTo(bgButton.mas_right);
+//                        make.width.equalTo(frontView);
+//                        
+//                    }
+//                    else {
+//                        UIView *frontView = [bgButton viewWithTag:(columnNumber*(i-1)+j-1)];
+//                        UIView *behindView = [bgButton viewWithTag:(columnNumber*(i-1)+j+1)];
+//                        make.left.equalTo(frontView.mas_right).offset(padding1);
+//                        make.right.equalTo(behindView.mas_left).offset(-padding1);
+//                        make.width.equalTo(frontView);
+//                    }
+//                }
+//            }];
+//        }
+//    }
     
     
     
@@ -128,7 +146,7 @@
 //        make.edges.equalTo(scrollView);
 //        make.width.equalTo(scrollView);
 //    }];
-//    
+//
 //    int count = 10;
 //    
 //    UIView *lastView = nil;
