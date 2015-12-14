@@ -15,6 +15,7 @@
 		322F48101B27025400B5216A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 322F480F1B27025400B5216A /* Images.xcassets */; };
 		322F48131B27025400B5216A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 322F48111B27025400B5216A /* LaunchScreen.xib */; };
 		322F481F1B27025400B5216A /* MasonryDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 322F481E1B27025400B5216A /* MasonryDemoTests.m */; };
+		32351BF51C1EF6C600E24B60 /* CCStyleBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32351BF41C1EF6C600E24B60 /* CCStyleBoxView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		322F48181B27025400B5216A /* MasonryDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasonryDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		322F481D1B27025400B5216A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322F481E1B27025400B5216A /* MasonryDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasonryDemoTests.m; sourceTree = "<group>"; };
+		32351BF31C1EF6C600E24B60 /* CCStyleBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCStyleBoxView.h; sourceTree = "<group>"; };
+		32351BF41C1EF6C600E24B60 /* CCStyleBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCStyleBoxView.m; sourceTree = "<group>"; };
 		8FBB62ECFCCD315EA69FED11 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DA6ACC7CC49F4EB967325301 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +95,8 @@
 				322F48071B27025400B5216A /* AppDelegate.m */,
 				322F48091B27025400B5216A /* ViewController.h */,
 				322F480A1B27025400B5216A /* ViewController.m */,
+				32351BF31C1EF6C600E24B60 /* CCStyleBoxView.h */,
+				32351BF41C1EF6C600E24B60 /* CCStyleBoxView.m */,
 				322F480C1B27025400B5216A /* Main.storyboard */,
 				322F480F1B27025400B5216A /* Images.xcassets */,
 				322F48111B27025400B5216A /* LaunchScreen.xib */,
@@ -280,6 +285,7 @@
 			files = (
 				322F480B1B27025400B5216A /* ViewController.m in Sources */,
 				322F48081B27025400B5216A /* AppDelegate.m in Sources */,
+				32351BF51C1EF6C600E24B60 /* CCStyleBoxView.m in Sources */,
 				322F48051B27025400B5216A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

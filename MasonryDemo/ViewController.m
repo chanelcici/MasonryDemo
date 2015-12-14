@@ -38,7 +38,7 @@
 //    }];
     int padding1 = 3;
     
-    int lineNumber = 30;   //行数
+    int lineNumber = 3;   //行数
     int columnNumber = 4;   //列数
     for (int i=1; i <= lineNumber*columnNumber; i++) {
         UIView *cellView = [[UIView alloc] init];
