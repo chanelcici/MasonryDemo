@@ -77,7 +77,7 @@
             
         }
         
-        //i行数,j列数
+        //创建Sudoku  i行数,j列数
         for (int i=1; i<=rowNumber; i++) {
             for (int j=1; j<=columnNumber; j++) {
                 CCSudokuGrid *currentView = [self viewWithTag:(columnNumber*(i-1)+j)];
